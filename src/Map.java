@@ -1,8 +1,11 @@
+import java.util.Scanner;
+
 public class Map {
     Mapfield[][] map;
     int height=35;
     int width=25;
     Player player = new Player();
+    String lepes;
 
     public Map() {
 
@@ -13,6 +16,7 @@ public class Map {
             }
         }
         mapWrite();
+        playerStepsInMap();
     }
 
     public void mapWrite(){
@@ -35,9 +39,17 @@ public class Map {
         for(int i=0; i<height; i++) {
             for (int j = 0; j < width; j++) {
                 if(player.getPlayerposX()==i && player.getPlayerposY() == j){
-                    map[i][j]=new Player();
+                    map[i][j]= new Player();
                 }
             }
             }
+    }
+    //todo: problem: if player steps the last positions stay |00| instead of |  |
+    public void playerStepsInMap(){
+        Scanner scanner = new Scanner(System.in);
+        lepes = scanner.nextLine();
+        player.playerSteps(lepes);
+        mapWrite();
+        playerStepsInMap();
     }
 }
