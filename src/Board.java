@@ -60,6 +60,7 @@ public class Board extends Mapfield {
 //        }
     }
     //TODO: movePosition: id player get step, the items go down
+    //TODO: what id, it's not a map in map -> map in an array?
     public void movePosition() {
         for (Map.Entry<Integer, Map> elem : item.entrySet()) {
             for (Map.Entry<Integer, Integer> elempos : position.entrySet()) {
