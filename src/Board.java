@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class Board extends Mapfield {
 
@@ -12,7 +10,8 @@ public class Board extends Mapfield {
 
     public int boardId=0;
 
-    Map<Integer, Map> item = new HashMap<>();
+    //Map<Integer, Map> item = new HashMap<>();
+    List<Map> item = new ArrayList<>();
     Map<Integer, Integer> position;
 
     public Board() {
@@ -27,9 +26,11 @@ public class Board extends Mapfield {
     }
 
     public void doBoard() {
-        item.put(boardId, position);
-        boardId++;
+        item.add(position);
+
+
     }
+
 
     public int getX() {
         return x;
@@ -60,9 +61,9 @@ public class Board extends Mapfield {
 //        }
     }
     //TODO: movePosition: id player get step, the items go down
-    //TODO: what id, it's not a map in map -> map in an array?
+    //TODO: what id, it's not a map in map -> map in an list?
     public void movePosition() {
-        for (Map.Entry<Integer, Map> elem : item.entrySet()) {
+        for (int i=0; i < item.size(); i++) {
             for (Map.Entry<Integer, Integer> elempos : position.entrySet()) {
                 elempos.setValue(elempos.getValue()+1);
                 System.out.println(elempos.getKey() + "\t" + elempos.getValue());
@@ -78,10 +79,10 @@ public class Board extends Mapfield {
 //        for (Map.Entry<Integer, Map> elem : item.entrySet()) {
 //            System.out.println(elem.getKey() + "\t" + elem.getValue());
 //        }
-        Iterator elemek = item.entrySet().iterator();
-        while (elemek.hasNext()) {
-            Map.Entry elem = (Map.Entry) elemek.next();
-            System.out.println(elem.getKey() + "\t" + elem.getValue());
+        for (int i=0; i < item.size(); i++) {
+
+            System.out.println( i +" " + item.get(i));
+
         }
     }
 }
