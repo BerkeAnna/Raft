@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class MapOfGame {
     String lepes;
     Mapfield item;
     Mapfield n;
-    Board br;
+    Board board = new Board();
 
     public MapOfGame() {
 
@@ -22,8 +23,8 @@ public class MapOfGame {
         doItemsToMap();
 
         mapWrite();
-
         playerStepsInMap();
+
 
     }
 
@@ -35,13 +36,14 @@ public class MapOfGame {
             for (int j = 0; j < width; j++) { // go on width
                     if(random.nextInt(100)<32) { //if less then 32  do board, else end of loop
 
-                        map[0][j] = new Board( /*0, random.nextInt(25)*/);
+                        map[0][j] = board.posBoard(0, random.nextInt(25));
                         j=width-1;
                     }
 
             }
         }
     }
+
 
     public void mapWrite(){
 

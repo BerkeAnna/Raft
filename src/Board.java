@@ -18,12 +18,12 @@ public class Board extends Mapfield {
     public Board() {
     }
 
-    public void posBoard(int x, int y) {
+    public Board posBoard(int x, int y) {
         this.x = x;
         this.y = y;
         itemPosition(x, y);
         doBoard();
-
+        return this;
     }
 
     public void doBoard() {
@@ -52,12 +52,25 @@ public class Board extends Mapfield {
 
 
         position = new HashMap<>();
-        position.put(x, y);
+        position.put( y, x);
 
 
 //        for(Map.Entry<Integer, Map> elem : item.entrySet()) {
 //            System.out.println(elem.getKey() + "\t" + elem.getValue());
 //        }
+    }
+    //TODO: movePosition: id player get step, the items go down
+    public void movePosition() {
+        for (Map.Entry<Integer, Map> elem : item.entrySet()) {
+            for (Map.Entry<Integer, Integer> elempos : position.entrySet()) {
+                elempos.setValue(elempos.getValue()+1);
+                System.out.println(elempos.getKey() + "\t" + elempos.getValue());
+                elempos.setValue(elempos.getValue()+1);
+                System.out.println(elempos.getKey() + "\t" + elempos.getValue());
+                elempos.setValue(elempos.getValue()+1);
+                System.out.println(elempos.getKey() + "\t" + elempos.getValue());
+            }
+        }
     }
 
     public void kiir() {

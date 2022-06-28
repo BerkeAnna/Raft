@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Objects;
 
 public class Player extends Mapfield {
@@ -49,4 +50,6 @@ public class Player extends Mapfield {
             setPlayerposX(getPlayerposX()+1);
         }
     }
+
+
 }
