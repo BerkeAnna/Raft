@@ -23,7 +23,11 @@ public class MapOfGame {
         doItemsToMap();
 
         mapWrite();
+        //board.movePosition();
+        board.kiir();
         playerStepsInMap();
+
+
 
 
     }
@@ -31,18 +35,20 @@ public class MapOfGame {
     public void doItemsToMap() {
         Random random = new Random();
         int endLoop = random.nextInt(2);
-        for (int k = 0; k < 3; k++) { //max 3 item generated
+       for (int k = 0; k < 3; k++) { //max 3 item generated
+        int newitem=3;
 
             for (int j = 0; j < width; j++) { // go on width
                     if(random.nextInt(100)<32) { //if less then 32  do board, else end of loop
-
-                        map[0][j] = board.posBoard(0, random.nextInt(25));
+                       int jtwo=random.nextInt(21);
+                        map[0][jtwo] = board.posBoard(0, jtwo );
                         j=width-1;
+                        newitem--;
                     }
 
             }
         }
-    }
+   }
 
 
     public void mapWrite(){

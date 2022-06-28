@@ -67,10 +67,7 @@ public class Board extends Mapfield {
             for (Map.Entry<Integer, Integer> elempos : position.entrySet()) {
                 elempos.setValue(elempos.getValue()+1);
                 System.out.println(elempos.getKey() + "\t" + elempos.getValue());
-                elempos.setValue(elempos.getValue()+1);
-                System.out.println(elempos.getKey() + "\t" + elempos.getValue());
-                elempos.setValue(elempos.getValue()+1);
-                System.out.println(elempos.getKey() + "\t" + elempos.getValue());
+
             }
         }
     }
